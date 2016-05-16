@@ -42,4 +42,6 @@ public @interface Spec {
     
     @SuppressWarnings("rawtypes")
     Class<? extends Specification> spec();
+    
+    JoinedSpec[] joins() default {};
 }

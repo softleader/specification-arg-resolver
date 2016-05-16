@@ -1,3 +1,8 @@
+
+
+hehe
+
+
 /**
  * Copyright 2014-2016 the original author or authors.
  *
@@ -48,9 +53,21 @@ public abstract class E2eTestBase extends IntegrationTestBase {
 	
     @Before
     public void initialize() {
-        homerSimpson = customer("Homer", "Simpson").nickName("Homie").registrationDate(2014, 03, 15).gender(MALE).street("Evergreen Terrace").build(em);
+        homerSimpson = customer("Homer", "Simpson")
+        		.nickName("Homie")
+        		.registrationDate(2014, 03, 15)
+        		.gender(MALE)
+        		.street("Evergreen Terrace")
+        		.orders("Duff Beer", "Pizza")
+        		.build(em);
         margeSimpson = customer("Marge", "Simpson").registrationDate(2014, 03, 20).gender(FEMALE).street("Evergreen Terrace").build(em);
-        bartSimpson = customer("Bart", "Simpson").nickName("El Barto").registrationDate(2014, 03, 25).gender(MALE).street("Evergreen Terrace").build(em);
+        bartSimpson = customer("Bart", "Simpson")
+        		.nickName("El Barto")
+        		.registrationDate(2014, 03, 25)
+        		.gender(MALE)
+        		.street("Evergreen Terrace")
+        		.orders("Skateboard", "Slingshot", "Pizza")
+        		.build(em);
         lisaSimpson = customer("Lisa", "Simpson").registrationDate(2014, 03, 30).gender(FEMALE).street("Evergreen Terrace").build(em);
         maggieSimpson = customer("Maggie", "Simpson").registrationDate(2014, 03, 31).gender(FEMALE).street("Evergreen Terrace").build(em);
         moeSzyslak = customer("Moe", "Szyslak").registrationDate(2014, 03, 15).gender(MALE).street("Unknown").build(em);
