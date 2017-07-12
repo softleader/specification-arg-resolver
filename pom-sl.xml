@@ -32,6 +32,7 @@
 	<properties>
 		<io.spring.platform.version>Athens-RELEASE</io.spring.platform.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<org.jacoco.version>0.7.9</org.jacoco.version>
 	</properties>
 
 	<scm>
@@ -165,6 +166,56 @@
                                         </dependency>
                                 </dependencies>
                         </plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${org.jacoco.version}</version>
+				<configuration>
+					<excludes>
+						<exclude>**/config/**/*.*</exclude>
+						<exclude>**/dao/**/*.*</exclude>
+						<exclude>**/entity/**/*.*</exclude>
+						<exclude>**/enums/**/*.*</exclude>
+					</excludes>
+				</configuration>
+				<executions>
+					<execution>
+						<id>default-prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-check</id>
+						<goals>
+							<goal>check</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<!--  implementation is needed only for Maven 2  -->
+								<rule implementation="org.jacoco.maven.RuleConfiguration">
+									<element>BUNDLE</element>
+									<limits>
+										<!--  implementation is needed only for Maven 2  -->
+										<limit implementation="org.jacoco.report.check.Limit">
+											<counter>COMPLEXITY</counter>
+											<value>COVEREDRATIO</value>
+											<minimum>0.60</minimum>
+										</limit>
+									</limits>
+								</rule>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 		<extensions>
 			<extension>
@@ -275,6 +326,13 @@
 		    <groupId>com.jayway.jsonpath</groupId>
 		    <artifactId>json-path</artifactId>
 		    <scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jacoco</groupId>
+			<artifactId>org.jacoco.agent</artifactId>
+			<classifier>runtime</classifier>
+			<version>${org.jacoco.version}</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
