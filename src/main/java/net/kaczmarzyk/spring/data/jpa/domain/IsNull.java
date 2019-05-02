@@ -42,4 +42,10 @@ public class IsNull<T> extends PathSpecification<T> implements ZeroArgSpecificat
 		return cb.isNull(path(root));
 	}
 
+	@Override
+	public String toString() {
+		return "IsNull{" +
+				"path='" + path + '\'' +
+				'}';
+	}
 }

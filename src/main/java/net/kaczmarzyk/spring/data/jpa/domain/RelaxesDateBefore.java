@@ -38,4 +38,12 @@ public class RelaxesDateBefore<T> extends PathSpecification<T> {
   public Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
     return cb.and(cb.greaterThanOrEqualTo(this.path(root), before));
   }
+
+  @Override
+  public String toString() {
+    return "RelaxesDateBefore{" +
+            "before=" + before +
+            ", path='" + path + '\'' +
+            '}';
+  }
 }

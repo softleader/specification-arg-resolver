@@ -46,4 +46,12 @@ public class EqualIgnoreCase<T> extends Equal<T> {
 
         return super.toPredicate(root, query, cb);
     }
+
+    @Override
+    public String toString() {
+        return "EqualIgnoreCase{" +
+                "expectedValue='" + expectedValue + '\'' +
+                ", path='" + path + '\'' +
+                '}';
+    }
 }

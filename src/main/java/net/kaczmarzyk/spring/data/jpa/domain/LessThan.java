@@ -47,5 +47,12 @@ public class LessThan<T> extends ComparableSpecification<T> {
 	protected <Y extends Comparable<? super Y>> Predicate makePredicate(CriteriaBuilder cb, Expression<? extends Y> x, Y y) {
 		return cb.lessThan(x, y);
 	}
-	
+
+	@Override
+	public String toString() {
+		return "LessThan{" +
+				"comparedTo='" + comparedTo + '\'' +
+				", path='" + path + '\'' +
+				'}';
+	}
 }

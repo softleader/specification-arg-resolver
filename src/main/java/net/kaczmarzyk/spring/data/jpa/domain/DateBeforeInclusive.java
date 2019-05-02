@@ -52,4 +52,11 @@ public class DateBeforeInclusive<T>
         return cb.lessThanOrEqualTo(this.<Date>path(root), date);
     }
 
+    @Override
+    public String toString() {
+        return "DateBeforeInclusive{" +
+                "date=" + date +
+                ", path='" + path + '\'' +
+                '}';
+    }
 }

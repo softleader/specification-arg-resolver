@@ -54,4 +54,11 @@ public class Null<T> extends PathSpecification<T> {
 		}
 	}
 
+	@Override
+	public String toString() {
+		return "Null{" +
+				"expectedValue='" + expectedValue + '\'' +
+				", path='" + path + '\'' +
+				'}';
+	}
 }

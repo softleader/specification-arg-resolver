@@ -83,4 +83,10 @@ public class Conjunction<T> implements Specification<T> {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Conjunction{" +
+                "innerSpecs=" + innerSpecs +
+                '}';
+    }
 }

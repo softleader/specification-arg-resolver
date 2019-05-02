@@ -35,7 +35,7 @@ import net.kaczmarzyk.spring.data.jpa.utils.Converter;
  */
 public abstract class ComparableSpecification<T> extends PathSpecification<T> {
 
-	private String comparedTo;
+	protected String comparedTo;
 	private Converter converter;	
 	
 	public ComparableSpecification(String path, String[] httpParamValues, Converter converter) {

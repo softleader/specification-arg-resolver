@@ -111,4 +111,11 @@ public class EqualEnum<T> extends PathSpecification<T> {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "EqualEnum{" +
+                "searchedNames=" + Arrays.toString(searchedNames) +
+                ", path='" + path + '\'' +
+                '}';
+    }
 }

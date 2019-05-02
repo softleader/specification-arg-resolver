@@ -126,4 +126,5 @@ public abstract class PathSpecification<T> implements Specification<T> {
             return false;
         return true;
     }
+
 }

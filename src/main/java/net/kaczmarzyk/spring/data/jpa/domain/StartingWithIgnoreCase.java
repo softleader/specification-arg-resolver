@@ -28,4 +28,12 @@ public class StartingWithIgnoreCase<T> extends LikeIgnoreCase<T> {
     super(path, args);
     this.pattern = args[0] + "%";
   }
+
+  @Override
+  public String toString() {
+    return "StartingWithIgnoreCase{" +
+            "pattern='" + pattern + '\'' +
+            ", path='" + path + '\'' +
+            '}';
+  }
 }

@@ -61,4 +61,12 @@ public class In<T> extends PathSpecification<T> {
 		return path.in(converter.convert(Arrays.asList(allowedValues), typeOnPath, onTypeMismatch));
 	}
 
+	@Override
+	public String toString() {
+		return "In{" +
+				"allowedValues=" + Arrays.toString(allowedValues) +
+				", onTypeMismatch=" + onTypeMismatch +
+				", path='" + path + '\'' +
+				'}';
+	}
 }

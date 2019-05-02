@@ -51,5 +51,12 @@ public class DateAfter<T> extends DateSpecification<T> {
         return cb.greaterThan(this.<Date>path(root), date);
     }
 
+    @Override
+    public String toString() {
+        return "DateAfter{" +
+                "date=" + date +
+                ", path='" + path + '\'' +
+                '}';
+    }
 }
 

@@ -50,4 +50,11 @@ public class Equal<T> extends PathSpecification<T> {
 		return cb.equal(path(root), converter.convert(expectedValue, typeOnPath));
 	}
 
+	@Override
+	public String toString() {
+		return "Equal{" +
+				"expectedValue='" + expectedValue + '\'' +
+				", path='" + path + '\'' +
+				'}';
+	}
 }

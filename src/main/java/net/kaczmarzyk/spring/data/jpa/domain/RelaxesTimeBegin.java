@@ -40,4 +40,12 @@ public class RelaxesTimeBegin<T> extends PathSpecification<T> {
   public Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
     return cb.greaterThanOrEqualTo(this.path(root), begin);
   }
+
+  @Override
+  public String toString() {
+    return "RelaxesTimeBegin{" +
+            "begin=" + begin +
+            ", path='" + path + '\'' +
+            '}';
+  }
 }

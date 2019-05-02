@@ -28,4 +28,12 @@ public class StartingWith<T> extends Like<T> {
     super(path, args);
     this.pattern = args[0] + "%";
   }
+
+  @Override
+  public String toString() {
+    return "StartingWith{" +
+            "pattern='" + pattern + '\'' +
+            ", path='" + path + '\'' +
+            '}';
+  }
 }

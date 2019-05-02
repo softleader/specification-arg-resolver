@@ -31,4 +31,11 @@ abstract class DateSpecification<T> extends PathSpecification<T> {
         super(path);
         this.converter = converter;
     }
+
+    @Override
+    public String toString() {
+        return "DateSpecification{" +
+                "path='" + path + '\'' +
+                '}';
+    }
 }

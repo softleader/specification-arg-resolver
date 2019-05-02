@@ -88,4 +88,12 @@ public class JoinFetch<T> implements Specification<T> {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "JoinFetch{" +
+                "pathsToFetch=" + pathsToFetch +
+                ", joinType=" + joinType +
+                '}';
+    }
 }

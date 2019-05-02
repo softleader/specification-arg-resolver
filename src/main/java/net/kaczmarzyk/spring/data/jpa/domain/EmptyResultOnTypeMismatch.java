@@ -59,4 +59,11 @@ public class EmptyResultOnTypeMismatch<T> implements Specification<T> {
 	public Specification<T> getWrappedSpec() {
 		return wrappedSpec;
 	}
+
+	@Override
+	public String toString() {
+		return "EmptyResultOnTypeMismatch{" +
+				"wrappedSpec=" + wrappedSpec +
+				'}';
+	}
 }

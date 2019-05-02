@@ -51,4 +51,13 @@ public class DateBetween<T> extends DateSpecification<T> {
     public Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
         return cb.between(this.<Date>path(root), after, before);
     }
+
+    @Override
+    public String toString() {
+        return "DateBetween{" +
+                "after=" + after +
+                ", before=" + before +
+                ", path='" + path + '\'' +
+                '}';
+    }
 }

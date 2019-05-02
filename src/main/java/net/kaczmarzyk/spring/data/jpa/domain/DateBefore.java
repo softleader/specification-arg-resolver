@@ -52,4 +52,11 @@ public class DateBefore<T> extends DateSpecification<T> {
         return cb.lessThan(this.<Date>path(root), date);
     }
 
+    @Override
+    public String toString() {
+        return "DateBefore{" +
+                "date=" + date +
+                ", path='" + path + '\'' +
+                '}';
+    }
 }

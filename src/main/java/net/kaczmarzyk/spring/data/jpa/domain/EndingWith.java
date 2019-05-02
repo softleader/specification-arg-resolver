@@ -28,4 +28,12 @@ public class EndingWith<T> extends Like<T> {
     super(path, args);
     this.pattern = "%" + args[0];
   }
+
+  @Override
+  public String toString() {
+    return "EndingWith{" +
+            "pattern='" + pattern + '\'' +
+            ", path='" + path + '\'' +
+            '}';
+  }
 }

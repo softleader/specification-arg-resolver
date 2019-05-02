@@ -47,5 +47,12 @@ public class GreaterThan<T> extends ComparableSpecification<T> {
 	protected <Y extends Comparable<? super Y>> Predicate makePredicate(CriteriaBuilder cb, Expression<? extends Y> x, Y y) {
 		return cb.greaterThan(x, y);
 	}
-	
+
+	@Override
+	public String toString() {
+		return "GreaterThan{" +
+				"comparedTo='" + comparedTo + '\'' +
+				", path='" + path + '\'' +
+				'}';
+	}
 }

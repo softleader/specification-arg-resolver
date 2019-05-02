@@ -37,4 +37,11 @@ public class LikeIgnoreCase<T> extends Like<T> {
         return builder.like(builder.upper(this.<String> path(root)), pattern.toUpperCase());
     }
 
+    @Override
+    public String toString() {
+        return "LikeIgnoreCase{" +
+                "pattern='" + pattern + '\'' +
+                ", path='" + path + '\'' +
+                '}';
+    }
 }
