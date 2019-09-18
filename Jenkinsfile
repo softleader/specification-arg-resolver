@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('deploy') {
             steps {
-                sh 'mvn clean deploy -f pom-sl.xml -DskipTests=true -e'
+                sh 'mvn clean deploy -f pom.xml -e'
             }
         }
     }
