@@ -15,21 +15,20 @@
  */
 package net.kaczmarzyk.spring.data.jpa.domain;
 
-import static net.kaczmarzyk.spring.data.jpa.CustomerBuilder.customer;
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.util.List;
-
+import net.kaczmarzyk.spring.data.jpa.Customer;
+import net.kaczmarzyk.spring.data.jpa.Gender;
+import net.kaczmarzyk.spring.data.jpa.IntegrationTestBase;
+import net.kaczmarzyk.spring.data.jpa.Order;
 import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
 
-import net.kaczmarzyk.spring.data.jpa.Customer;
-import net.kaczmarzyk.spring.data.jpa.Gender;
-import net.kaczmarzyk.spring.data.jpa.IntegrationTestBase;
-import net.kaczmarzyk.spring.data.jpa.Order;
+import java.util.List;
+
+import static net.kaczmarzyk.spring.data.jpa.CustomerBuilder.customer;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 /**
@@ -56,13 +55,13 @@ public class EqualTest extends IntegrationTestBase {
    
     @Test
     public void filtersByCustomerId() {
-        Customer customer = customerRepo.findOne(new Equal<>("firstName", new String[] { "Matt" }, defaultConverter));
+        Customer customer = customerRepo.findOne(new Equal<>("firstName", new String[] { "Matt" }, defaultConverter)).orElse(null);
         assertThat(customer).isNotNull().hasFieldOrProperty("id");
         assertThat(customer.getOrders()).hasSize(1);
         Order order = customer.getOrders().iterator().next();
         assertThat(order).hasFieldOrPropertyWithValue("itemName", "pen");
         
-        Order found = orderRepo.findOne(new Equal<>("customer.id", new String[] { String.valueOf(customer.getId()) }, defaultConverter));
+        Order found = orderRepo.findOne(new Equal<>("customer.id", new String[] { String.valueOf(customer.getId()) }, defaultConverter)).orElse(null);
         assertThat(found).isNotNull()
             .isEqualTo(order);
     }
