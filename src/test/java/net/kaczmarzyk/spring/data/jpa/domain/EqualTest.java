@@ -55,13 +55,13 @@ public class EqualTest extends IntegrationTestBase {
    
     @Test
     public void filtersByCustomerId() {
-        Customer customer = customerRepo.findOne(new Equal<>("firstName", new String[] { "Matt" }, defaultConverter)).orElse(null);
+        Customer customer = customerRepo.findOne(new Equal<>("firstName", new String[] { "Matt" }, defaultConverter));
         assertThat(customer).isNotNull().hasFieldOrProperty("id");
         assertThat(customer.getOrders()).hasSize(1);
         Order order = customer.getOrders().iterator().next();
         assertThat(order).hasFieldOrPropertyWithValue("itemName", "pen");
         
-        Order found = orderRepo.findOne(new Equal<>("customer.id", new String[] { String.valueOf(customer.getId()) }, defaultConverter)).orElse(null);
+        Order found = orderRepo.findOne(new Equal<>("customer.id", new String[] { String.valueOf(customer.getId()) }, defaultConverter));
         assertThat(found).isNotNull()
             .isEqualTo(order);
     }
