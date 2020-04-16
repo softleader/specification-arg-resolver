@@ -16,6 +16,7 @@
 package net.kaczmarzyk.spring.data.jpa.domain;
 
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.jpa.domain.Specifications;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -45,10 +46,10 @@ public class Conjunction<T> implements Specification<T> {
 
     @Override
     public Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-        Specification<T> combinedSpecs = null;
+        Specifications<T> combinedSpecs = null;
         for (Specification<T> spec : innerSpecs) {
             if (combinedSpecs == null) {
-                combinedSpecs = Specification.where(spec);
+                combinedSpecs = Specifications.where(spec);
             } else {
                 combinedSpecs = combinedSpecs.and(spec);
             }
